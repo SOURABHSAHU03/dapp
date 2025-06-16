@@ -1,0 +1,21 @@
+{
+  "canisters": {
+    "bcd_backend": {
+      "main": "src/bcd_backend/main.mo",
+      "type": "motoko"
+    },
+    "bcd_frontend": {
+      "dependencies": ["bcd_backend"],
+      "source": ["src/bcd_frontend"],
+      "type": "assets"
+    }
+  },
+  "dfx": "0.27.0",
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:4943",
+      "type": "ephemeral"
+    }
+  },
+  "version": 1
+}

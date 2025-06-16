@@ -1,0 +1,13 @@
+type Product = record {
+  id : nat;
+  name : text;
+  owner : text;
+  location : text;
+  status : text;
+};
+
+service : {
+  addProduct : (nat, text, text, text, text) -> ();
+  transferProduct : (nat, text, text) -> (bool);
+  getProduct : (nat) -> (?Product) query;
+}
