@@ -1,21 +1,24 @@
 {
+  "version": 1,
   "canisters": {
-    "bcd_backend": {
-      "main": "src/bcd_backend/main.mo",
-      "type": "motoko"
+    "backend": {
+      "type": "rust",
+      "package": "backend",
+      "candid": "src/backend/backend.did"
     },
-    "bcd_frontend": {
-      "dependencies": ["bcd_backend"],
-      "source": ["src/bcd_frontend"],
-      "type": "assets"
+    "frontend": {
+      "type": "assets",
+      "source": ["src/frontend/dist"],
+      "build": ["cd src/frontend && npm run build"]
     }
   },
-  "dfx": "0.27.0",
   "networks": {
     "local": {
-      "bind": "127.0.0.1:4943",
+      "bind": "127.0.0.1:8000",
       "type": "ephemeral"
+    },
+    "ic": {
+      "type": "persistent"
     }
-  },
-  "version": 1
+  }
 }

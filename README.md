@@ -1,59 +1,135 @@
-# `bcd`
+# SupplyX - Ethical Supply Chain Tracker
 
-Welcome to your new `bcd` project and to the Internet Computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
+A blockchain-based supply chain tracking system built on the Internet Computer Protocol (ICP) that ensures transparency and ethical practices in global supply chains.
 
-To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
+![SupplyX Logo](src/frontend/public/images/logo.svg)
 
-To learn more before you start working with `bcd`, see the following documentation available online:
+## Features
 
-- [Quick Start](https://internetcomputer.org/docs/current/developer-docs/setup/deploy-locally)
-- [SDK Developer Tools](https://internetcomputer.org/docs/current/developer-docs/setup/install)
-- [Motoko Programming Language Guide](https://internetcomputer.org/docs/current/motoko/main/motoko)
-- [Motoko Language Quick Reference](https://internetcomputer.org/docs/current/motoko/main/language-manual)
+- 🔍 **QR Code Tracking**: Instantly access product history and verify authenticity
+- ✅ **Ethical Verification**: Ensure products meet fair trade and ethical sourcing standards
+- 📊 **Supply Chain Visibility**: Track products from source to consumer with complete transparency
+- 🌙 **Dark/Light Mode**: Modern UI with theme support
+- 🔒 **Secure Authentication**: Internet Identity integration
 
-If you want to start working on your project right away, you might want to try the following commands:
+## Prerequisites
 
-```bash
-cd bcd/
-dfx help
-dfx canister --help
+- [Node.js](https://nodejs.org/) (v16 or higher)
+- [DFX](https://internetcomputer.org/docs/current/developer-docs/build/install-upgrade-remove) (latest version)
+- [Rust](https://www.rust-lang.org/tools/install)
+- [WSL](https://docs.microsoft.com/en-us/windows/wsl/install) (for Windows users)
+
+## Quick Start
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Nikhil-0GX/ethical-supply-chain-tracker.git
+   cd ethical-supply-chain-tracker
+   ```
+
+2. Install dependencies:
+   ```bash
+   # Install frontend dependencies
+   cd src/frontend
+   npm install
+   cd ../..
+
+   # Install Rust dependencies
+   cd src/backend
+   cargo build
+   cd ../..
+   ```
+
+3. Start the local Internet Computer replica:
+   ```bash
+   dfx start --clean --background
+   ```
+
+4. Deploy the canisters:
+   ```bash
+   dfx deploy
+   ```
+
+5. Start the frontend development server:
+   ```bash
+   cd src/frontend
+   npm start
+   ```
+
+6. Open your browser and navigate to:
+   - Frontend: http://localhost:3000
+   - Internet Identity: http://localhost:4943?canisterId=rdmx6-jaaaa-aaaaa-aaadq-cai
+
+## Development
+
+### Project Structure
+```
+ethical-supply-chain-tracker/
+├── src/
+│   ├── frontend/          # React frontend application
+│   │   ├── src/
+│   │   │   ├── components/
+│   │   │   ├── contexts/
+│   │   │   ├── pages/
+│   │   │   └── services/
+│   │   └── public/
+│   └── backend/          # Rust backend canister
+├── .dfx/                # DFX configuration
+└── dfx.json            # Canister configuration
 ```
 
-## Running the project locally
+### Available Scripts
 
-If you want to test your project locally, you can use the following commands:
+- `dfx start`: Start the local Internet Computer replica
+- `dfx deploy`: Deploy all canisters
+- `dfx generate`: Generate canister interfaces
+- `npm start`: Start the frontend development server
+- `npm build`: Build the frontend for production
 
-```bash
-# Starts the replica, running in the background
-dfx start --background
-
-# Deploys your canisters to the replica and generates your candid interface
-dfx deploy
-```
-
-Once the job completes, your application will be available at `http://localhost:4943?canisterId={asset_canister_id}`.
-
-If you have made changes to your backend canister, you can generate a new candid interface with
+## Testing
 
 ```bash
-npm run generate
+# Run frontend tests
+cd src/frontend
+npm test
+
+# Run backend tests
+cd src/backend
+cargo test
 ```
 
-at any time. This is recommended before starting the frontend development server, and will be run automatically any time you run `dfx deploy`.
+## Deployment
 
-If you are making frontend changes, you can start a development server with
+1. Build the project:
+   ```bash
+   dfx build
+   ```
 
-```bash
-npm start
-```
+2. Deploy to the Internet Computer mainnet:
+   ```bash
+   dfx deploy --network ic
+   ```
 
-Which will start a server at `http://localhost:8080`, proxying API requests to the replica at port 4943.
+## Contributing
 
-### Note on frontend environment variables
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-If you are hosting frontend code somewhere without using DFX, you may need to make one of the following adjustments to ensure your project does not fetch the root key in production:
+## License
 
-- set`DFX_NETWORK` to `ic` if you are using Webpack
-- use your own preferred method to replace `process.env.DFX_NETWORK` in the autogenerated declarations
-  - Setting `canisters -> {asset_canister_id} -> declarations -> env_override to a string` in `dfx.json` will replace `process.env.DFX_NETWORK` with the string in the autogenerated declarations
-- Write your own `createActor` constructor
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Built with [Internet Computer](https://internetcomputer.org/)
+- Frontend powered by [React](https://reactjs.org/) and [Material-UI](https://mui.com/)
+- Authentication by [Internet Identity](https://identity.ic0.app/)
+
+## Contact
+
+Nikhil - [@Nikhil-0GX](https://github.com/Nikhil-0GX)
+
+Project Link: [https://github.com/Nikhil-0GX/ethical-supply-chain-tracker](https://github.com/Nikhil-0GX/ethical-supply-chain-tracker)# supplyx
